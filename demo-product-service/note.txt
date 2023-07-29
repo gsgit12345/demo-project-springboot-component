@@ -3,3 +3,6 @@
 //https://www.appsdeveloperblog.com/integration-testing-with-spring-boot-mysql-and-testcontainers/
 
 writing test of dockerized application
+
+https://simranchawla.com/integration-testing-docker-maven-plugin-vs-testcontainers/
+very importent
