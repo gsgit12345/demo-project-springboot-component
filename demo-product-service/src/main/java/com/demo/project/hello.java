@@ -19,7 +19,7 @@ public class hello {
 //here sonoo is database name, root is username and password
           //  mysql.default.svc.cluster.local:30007
             Statement stmt=con.createStatement();
-            ResultSet rs=stmt.executeQuery("select * from emp");
+            ResultSet rs=stmt.executeQuery("select * from t_inventory");
             while(rs.next())
                 System.out.println("hello mysql ::"+rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();

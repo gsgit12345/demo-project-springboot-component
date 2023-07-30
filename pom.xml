@@ -6,6 +6,7 @@
 	<modules>
 		<module>demo-product-service</module>
         <module>demo-order-service</module>
+        <module>demo-inventory-service</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -46,6 +47,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<version>${springboot.version}</version>
 		</dependency>
 
 		<!-- Use MySQL Connector-J -->
@@ -56,6 +58,40 @@
 		</dependency>
 
 	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-parent</artifactId>
+				<version>2.7.14</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.3.0</version>
+				<type>maven-plugin</type>
+			</dependency>
+			<dependency>
+				<groupId>org.testcontainers</groupId>
+				<artifactId>testcontainers-bom</artifactId>
+				<version>1.18.3</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!--      <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-configuration-processor</artifactId>
+                    <version>${spring-boot.version}</version>
+                    <optional>true</optional>
+                  </dependency>-->
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<plugins>
