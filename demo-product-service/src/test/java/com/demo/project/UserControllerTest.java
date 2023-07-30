@@ -1,9 +1,14 @@
 package com.demo.project;
+
 import com.demo.project.dto.ProductRequest;
+import com.demo.project.repository.ProductRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zaxxer.hikari.HikariDataSource;
+
 import javax.sql.DataSource;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -35,8 +40,10 @@ public class UserControllerTest {
 
     @Autowired
     private DataSource dataSource;
-@Autowired
-private ObjectMapper objectMapper;
+    @Autowired
+    ProductRepository productRepository;
+    @Autowired
+    private ObjectMapper objectMapper;
     @Container
     public static MySQLContainer<?> mySQLContainer = new MySQLContainer<>(DockerImageName.parse("mysql:8.0.26"))
             .withDatabaseName("Employee")
@@ -49,9 +56,9 @@ private ObjectMapper objectMapper;
     private int port;
 
     //@Autowired
-   // private TestRestTemplate restTemplate;
-@Autowired
-public MockMvc mockMvc;
+    // private TestRestTemplate restTemplate;
+    @Autowired
+    public MockMvc mockMvc;
 
     @DynamicPropertySource
     static void registerPgProperties(DynamicPropertyRegistry registry) {
@@ -71,15 +78,21 @@ public MockMvc mockMvc;
 
     @Test
     public void shouldCreateProduct() throws Exception {
-        ProductRequest requestObject=        getProductRequest();
-    String request=    objectMapper.writeValueAsString(requestObject);
-     mockMvc.perform(MockMvcRequestBuilders.post("/api/product").contentType(MediaType.APPLICATION_JSON).content(request))
-             .andExpect(status().isCreated());
+        ProductRequest requestObject = getProductRequest();
+        String request = objectMapper.writeValueAsString(requestObject);
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/product").contentType(MediaType.APPLICATION_JSON).content(request))
+                .andExpect(status().isCreated());
+        Assertions.assertEquals(1,productRepository.findAll().size());
+
     }
 
     private ProductRequest getProductRequest() {
-        return ProductRequest.builder().name("Ram").description("FirstProduct").price( BigDecimal.valueOf(120000)).build();
+        return ProductRequest.builder().name("Ram").description("FirstProduct").price(BigDecimal.valueOf(120000)).build();
     }
+
+
+
+
 /*
     @Test
     public void testCreateUser() {

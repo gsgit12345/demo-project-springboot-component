@@ -1,4 +1,25 @@
+===============testing the product service request and url=======
+{
+    "name":"ramesh",
+    "description":"hello product",
+    "price":1200
+}
 
+url:-http://localhost:8080/api/product
+
+===================testing the order-service request and url==============
+url:-http://localhost:8081/api/order
+
+{
+    "orderLineItemsDtoList":[
+        {
+       "skuCode":"REdminote",
+       "price":3000,
+       "quantity": 1
+
+        }
+    ]
+}
 
 //https://www.appsdeveloperblog.com/integration-testing-with-spring-boot-mysql-and-testcontainers/
 
@@ -14,3 +35,8 @@ testcontainers with java
 https://www.youtube.com/watch?v=lh1oQHXVSc0&list=PLSVW22jAG8pBnhAdq9S8BpLnZ0_jVBj0c    ---tutorial source
 
 https://www.youtube.com/watch?v=--nQfs67zCM   --testing in springboot using junit
+
+
+https://github.com/SaiUpadhyayula?tab=overview&from=2023-06-01&to=2023-06-30     --githublink for the tutorial
+
+https://projectlombok.org/features/

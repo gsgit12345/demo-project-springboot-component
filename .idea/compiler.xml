@@ -10,16 +10,19 @@
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar" />
         </processorPath>
+        <module name="demo-order-service" />
         <module name="demo-product-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="demo-order-service" target="1.8" />
       <module name="demo-product-service" target="1.8" />
       <module name="demo-project-springboot-component" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="demo-order-service" options="" />
       <module name="demo-product-service" options="" />
       <module name="demo-project-springboot-component" options="-parameters" />
     </option>
