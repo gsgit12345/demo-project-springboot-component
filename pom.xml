@@ -7,6 +7,7 @@
 		<module>demo-product-service</module>
         <module>demo-order-service</module>
         <module>demo-inventory-service</module>
+        <module>demo-discovery-service</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -23,6 +24,7 @@
 		<java.version>1.8</java.version>
 		<lombook.version>1.18.24</lombook.version>
 		<springboot.version>2.7.14</springboot.version>
+		<spring-cloud.version>2021.0.8</spring-cloud.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -43,19 +45,23 @@
 			<version>${springboot.version}</version>
 			<scope>test</scope>
 		</dependency>
+<!--
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 			<version>${springboot.version}</version>
 		</dependency>
+-->
 
 		<!-- Use MySQL Connector-J -->
+<!--
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.33</version>
 		</dependency>
+-->
 
 	</dependencies>
 
@@ -84,6 +90,13 @@
 				<scope>import</scope>
 			</dependency>
 
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 			<!--      <dependency>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-configuration-processor</artifactId>

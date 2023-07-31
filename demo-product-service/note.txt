@@ -27,6 +27,10 @@ writing test of dockerized application
 
 https://simranchawla.com/integration-testing-docker-maven-plugin-vs-testcontainers/
 very importent
+Enable client side loadbalancing in eureka.In case of the multiple version of the service we need the client side load balancing.other wise would not able to resolve
+where we have to send the request for execution and not able to select particular service from multiple instances
+===Eureka DashBoard=================
+http://localhost:8761/
 
 
 https://java.testcontainers.org/

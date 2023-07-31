@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 public class OrderService {
 
     private final OrderRepository orderRepository;
-    private final WebClient webClient;
+    private final WebClient.Builder webClientBuilder;
     public void placeOrder(OrderRequest orderRequest)
     {
         Order order=new Order();
@@ -33,7 +33,9 @@ public class OrderService {
        order.setOrderLineItemsList(orderLineItemsList);
   List<String> skuCodes=    order.getOrderLineItemsList().stream().map(OrderLineItems::getSkuCode).collect(Collectors.toList());
        //call the  inventory service and place order if product is in stock
-        InventoryResponse[] inventoryResponsesArray=  webClient.get().uri("http://localhost:8082/api/inventory",
+        //http://localhost:8082/api/inventory
+        //http://inventory-service/api/inventory  using eureka server
+        InventoryResponse[] inventoryResponsesArray=  webClientBuilder.build().get().uri("http://inventory-service/api/inventory",
               uriBuilder -> uriBuilder.queryParam("skuCode",skuCodes).build())
               .retrieve().bodyToMono(InventoryResponse[].class).block(); //block() is used to make synchronous request
 
