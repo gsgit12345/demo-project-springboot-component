@@ -34,9 +34,14 @@ testcontainers with java
 
 https://www.youtube.com/watch?v=lh1oQHXVSc0&list=PLSVW22jAG8pBnhAdq9S8BpLnZ0_jVBj0c    ---tutorial source
 
+ServiceDiscoveryPattern in microservice
+
 https://www.youtube.com/watch?v=--nQfs67zCM   --testing in springboot using junit
 
 
 https://github.com/SaiUpadhyayula?tab=overview&from=2023-06-01&to=2023-06-30     --githublink for the tutorial
 
 https://projectlombok.org/features/
+
+
+RestTemplate and WebClient :-both are used in synchronous communication.It is good to use the WebClient because it supports synch,asynch,streaming communication.

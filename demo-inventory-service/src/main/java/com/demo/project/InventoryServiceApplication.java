@@ -25,10 +25,10 @@ public class InventoryServiceApplication
         return args -> {
             Inventory inventory=new Inventory();
             inventory.setSkuCode("redmi");
-            inventory.setQuantity(100);
+            inventory.setQuantity(1);
             Inventory inventory2=new Inventory();
             inventory2.setSkuCode("samsung");
-            inventory2.setQuantity(200);
+            inventory2.setQuantity(0);
             inventoryRepository.save(inventory);
             inventoryRepository.save(inventory2);
 

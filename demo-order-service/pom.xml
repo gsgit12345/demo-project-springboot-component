@@ -74,6 +74,12 @@
     </dependency>
 
     <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-webflux</artifactId>
+      <version>${springboot.version}</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <version>${lombook.version}</version>
@@ -88,9 +94,7 @@
     <dependency>
       <groupId>org.testcontainers</groupId>
       <artifactId>mysql</artifactId>
-
-                <version>1.18.3</version>
-
+      <version>1.18.3</version>
       <scope>test</scope>
     </dependency>
 
@@ -100,6 +104,7 @@
       <version>${springboot.version}</version>
 
     </dependency>
+
 
     <!-- Use MySQL Connector-J -->
     <dependency>
