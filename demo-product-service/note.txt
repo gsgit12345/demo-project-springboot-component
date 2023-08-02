@@ -69,3 +69,5 @@ spring.cloud.gateway.routes[2].id=inventory-service
 spring.cloud.gateway.routes[2].uri=lb://inventory-service
 spring.cloud.gateway.routes[2].predicates[0]=Path="/api/inventory"
 
+===========hitting the using api gateway=====
+http://localhost:8080/api/product
