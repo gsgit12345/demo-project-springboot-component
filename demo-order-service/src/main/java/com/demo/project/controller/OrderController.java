@@ -23,9 +23,9 @@ public class OrderController {
         orderService.placeOrder(orderRequest);
         return "order has been placed ";
     }
-    @ResponseBody
+/*    @ResponseBody
     @ExceptionHandler(HttpMediaTypeNotAcceptableException.class)
     public String handleHttpMediaTypeNotAcceptableException() {
         return "acceptable MIME type:" + MediaType.APPLICATION_JSON_VALUE;
-    }
+    }*/
 }

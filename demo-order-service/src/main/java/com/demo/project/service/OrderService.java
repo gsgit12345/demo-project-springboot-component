@@ -35,7 +35,7 @@ public class OrderService {
        //call the  inventory service and place order if product is in stock
         //http://localhost:8082/api/inventory
         //http://inventory-service/api/inventory  using eureka server
-        InventoryResponse[] inventoryResponsesArray=  webClientBuilder.build().get().uri("http://inventory-service/api/inventory",
+      InventoryResponse[] inventoryResponsesArray=  webClientBuilder.build().get().uri("http://inventory-service/api/inventory",
               uriBuilder -> uriBuilder.queryParam("skuCode",skuCodes).build())
               .retrieve().bodyToMono(InventoryResponse[].class).block(); //block() is used to make synchronous request
 

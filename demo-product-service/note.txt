@@ -32,6 +32,7 @@ where we have to send the request for execution and not able to select particula
 ===Eureka DashBoard=================
 http://localhost:8761/
 
+https://javatodev.com/microservices-service-registration-and-discovery-with-spring-cloud-netflix-eureka/
 
 https://java.testcontainers.org/
 testcontainers with java
@@ -49,3 +50,22 @@ https://projectlombok.org/features/
 
 
 RestTemplate and WebClient :-both are used in synchronous communication.It is good to use the WebClient because it supports synch,asynch,streaming communication.
+
+
+
+#product service route
+spring.cloud.gateway.routes[0].id=product-service
+spring.cloud.gateway.routes[0].uri=lb://product-service
+spring.cloud.gateway.routes[0].predicates[0]=Path=/api/product
+
+#order service route
+spring.cloud.gateway.routes[1].id=order-service
+spring.cloud.gateway.routes[1].uri=lb://order-service
+spring.cloud.gateway.routes[1].predicates[0]=Path=/api/order
+
+
+#inventory service route
+spring.cloud.gateway.routes[2].id=inventory-service
+spring.cloud.gateway.routes[2].uri=lb://inventory-service
+spring.cloud.gateway.routes[2].predicates[0]=Path="/api/inventory"
+
