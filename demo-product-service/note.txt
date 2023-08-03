@@ -71,3 +71,8 @@ spring.cloud.gateway.routes[2].predicates[0]=Path="/api/inventory"
 
 ===========hitting the using api gateway=====
 http://localhost:8080/api/product
+
+#http://localhost:8080/eureka/web      ==accessing eureka using api gateway
+
+
+#spring.cloud.gateway.routes[3].uri=lb://localhost:8761
