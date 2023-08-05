@@ -51,24 +51,6 @@ https://projectlombok.org/features/
 
 RestTemplate and WebClient :-both are used in synchronous communication.It is good to use the WebClient because it supports synch,asynch,streaming communication.
 
-
-
-#product service route
-spring.cloud.gateway.routes[0].id=product-service
-spring.cloud.gateway.routes[0].uri=lb://product-service
-spring.cloud.gateway.routes[0].predicates[0]=Path=/api/product
-
-#order service route
-spring.cloud.gateway.routes[1].id=order-service
-spring.cloud.gateway.routes[1].uri=lb://order-service
-spring.cloud.gateway.routes[1].predicates[0]=Path=/api/order
-
-
-#inventory service route
-spring.cloud.gateway.routes[2].id=inventory-service
-spring.cloud.gateway.routes[2].uri=lb://inventory-service
-spring.cloud.gateway.routes[2].predicates[0]=Path="/api/inventory"
-
 ===========hitting the using api gateway=====
 http://localhost:8080/api/product
 
@@ -76,3 +58,23 @@ http://localhost:8080/api/product
 
 
 #spring.cloud.gateway.routes[3].uri=lb://localhost:8761
+
+====running the keycoak in local environment===
+docker run -p 8181:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:22.0.1 start-dev
+realm:-demo_realm
+client:-demo_client
+x3lWKhvRgTPgnSXTqyYYdwVeGDbLqUxY
+x3lWKhvRgTPgnSXTqyYYdwVeGDbLqUxY
+issuer:-http://localhost:8181/realms/Demo_ream
+
+token_endpoint:-http://localhost:8181/realms/demo_realm/protocol/openid-connect/token  :-configure it in postman
+https://www.youtube.com/watch?v=kn5h-GTjDY0&list=PLSVW22jAG8pBnhAdq9S8BpLnZ0_jVBj0c&index=5   :-keycloak with spring boot
+
+#==resilence4j circuit breaker==
+resilence4j is replacement of the netflix historic
+https://resilience4j.readme.io/docs
+spring cloud circuit breaker.netflix historic .
+
+http://localhost:8083/actuator/health   :--accesting the actuator for a service.here 8083 is the orderservice port number define in the application.property file
+
+Distributed tracing spring cloud sleuth
