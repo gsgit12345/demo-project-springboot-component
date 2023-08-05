@@ -78,3 +78,7 @@ spring cloud circuit breaker.netflix historic .
 http://localhost:8083/actuator/health   :--accesting the actuator for a service.here 8083 is the orderservice port number define in the application.property file
 
 Distributed tracing spring cloud sleuth
+#=====running the zipkin container =========
+docker run -d -p 9411:9411 openzipkin/zipkin
+
+http://localhost:9411/zipkin/
