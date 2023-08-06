@@ -82,3 +82,24 @@ Distributed tracing spring cloud sleuth
 docker run -d -p 9411:9411 openzipkin/zipkin
 
 http://localhost:9411/zipkin/
+
+https://spring.io/projects/spring-kafka
+
+
+in kafka there is bug not able to connect to listener.
+
+
+====step  to run this project=======
+
+docker run -p 8181:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:22.0.1 start-dev
+realm:-demo_realm
+client:-demo_client
+x3lWKhvRgTPgnSXTqyYYdwVeGDbLqUxY
+x3lWKhvRgTPgnSXTqyYYdwVeGDbLqUxY
+issuer:-http://localhost:8181/realms/Demo_ream
+
+token_endpoint:-http://localhost:8181/realms/demo_realm/protocol/openid-connect/token  :-configure it in postman
+https://www.youtube.com/watch?v=kn5h-GTjDY0&list=PLSVW22jAG8pBnhAdq9S8BpLnZ0_jVBj0c&index=5   :-keycloak with spring boot
+
+
+run mysql   and  kafka

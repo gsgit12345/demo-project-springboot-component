@@ -3,12 +3,14 @@ package com.demo.project.service;
 import com.demo.project.dto.InventoryResponse;
 import com.demo.project.dto.OrderLineItemsDto;
 import com.demo.project.dto.OrderRequest;
+import com.demo.project.event.OrderPlacedEvent;
 import com.demo.project.model.Order;
 import com.demo.project.model.OrderLineItems;
 import com.demo.project.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cloud.sleuth.Span;
 import org.springframework.cloud.sleuth.Tracer;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -26,6 +28,7 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final WebClient.Builder webClientBuilder;
     private final Tracer tracer;
+    private final KafkaTemplate<String, OrderPlacedEvent> kafkaTemplate;
 
     public String placeOrder(OrderRequest orderRequest) {
 
@@ -50,6 +53,7 @@ public class OrderService {
             boolean result = Arrays.stream(inventoryResponsesArray).allMatch(InventoryResponse::isInStock);
             if (result) {
                 orderRepository.save(order);
+                kafkaTemplate.send("notificationTopic", new OrderPlacedEvent(order.getOrderNumber()));
                 return "order place succesfully";
 
             } else {

@@ -9,9 +9,10 @@
 		<module>demo-inventory-service</module>
 		<module>demo-order-service</module>
 		<module>demo-product-service</module>
+        <module>notification-service</module>
 
 
-	</modules>
+    </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
