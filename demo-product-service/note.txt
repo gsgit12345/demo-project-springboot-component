@@ -103,3 +103,12 @@ https://www.youtube.com/watch?v=kn5h-GTjDY0&list=PLSVW22jAG8pBnhAdq9S8BpLnZ0_jVB
 
 
 run mysql   and  kafka
+
+docker compose up -d   :-to run the docker-compose.yaml
+
+
+
+https://spring.io/guides/topicals/spring-boot-docker/      :-pom docker file
+
+=======for building the docker image====
+[iid@iid api-gateway-demo]$ docker build  -t apigatey -f docker/Dockerfile .
