@@ -1,21 +1,15 @@
 package com.demo.project.config;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+//@Configuration
+//@EnableWebSecurity
+public class ClientConfig //extends WebSecurityConfigurerAdapter {
+{
 
-@Configuration
-@EnableWebSecurity
-public class ClientConfig extends WebSecurityConfigurerAdapter {
-
-    @Value("${eureka.username}")
-    String username;
-    @Value("${eureka.password}")
-    String password;
+    //@Value("${eureka.username}")
+    //  String username;
+    //@Value("${eureka.password}")
+    //String password;
+/*
 
     @Override
     public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
@@ -32,4 +26,5 @@ public class ClientConfig extends WebSecurityConfigurerAdapter {
                 authenticated().and().httpBasic();
 
     }
+*/
 }

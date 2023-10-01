@@ -107,8 +107,12 @@ run mysql   and  kafka
 docker compose up -d   :-to run the docker-compose.yaml
 
 
-
+https://spring.io/projects/spring-cloud/
 https://spring.io/guides/topicals/spring-boot-docker/      :-pom docker file
-
+https://spring.io/projects/spring-kafka#learn
+https://cloud.google.com/java/getting-started/jib     jib tutorial
 =======for building the docker image====
 [iid@iid api-gateway-demo]$ docker build  -t apigatey -f docker/Dockerfile .
+[iid@iid api-gateway-demo]$ docker build -t apigatewayap -f docker/Dockerfile.layered
+
+building java image with jib :-it will take care  about the image optimization.

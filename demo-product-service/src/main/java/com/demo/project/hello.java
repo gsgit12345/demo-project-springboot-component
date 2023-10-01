@@ -6,7 +6,10 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class hello {
-    public static void main(String str[]) {
+/*    public static void main(String str[]) {
+    }*/
+
+    public static void testMysql() {
 
         //    kafkademo.default.svc.cluster.local:32069
         //172.17.0.2
@@ -28,6 +31,6 @@ public class hello {
             System.out.println(e);
         }
     }
-//http://localhost:8081/course/save
+
 }
 
