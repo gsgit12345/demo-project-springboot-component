@@ -1,0 +1,118 @@
+===============testing the product service request and url=======
+{
+    "name":"ramesh",
+    "description":"hello product",
+    "price":1200
+}
+
+url:-http://localhost:8080/api/product
+
+===================testing the order-service request and url==============
+url:-http://localhost:8081/api/order
+
+{
+    "orderLineItemsDtoList":[
+        {
+       "skuCode":"REdminote",
+       "price":3000,
+       "quantity": 1
+
+        }
+    ]
+}
+
+//https://www.appsdeveloperblog.com/integration-testing-with-spring-boot-mysql-and-testcontainers/
+
+writing test of dockerized application
+
+https://simranchawla.com/integration-testing-docker-maven-plugin-vs-testcontainers/
+very importent
+Enable client side loadbalancing in eureka.In case of the multiple version of the service we need the client side load balancing.other wise would not able to resolve
+where we have to send the request for execution and not able to select particular service from multiple instances
+===Eureka DashBoard=================
+http://localhost:8761/
+
+https://javatodev.com/microservices-service-registration-and-discovery-with-spring-cloud-netflix-eureka/
+
+https://java.testcontainers.org/
+testcontainers with java
+
+https://www.youtube.com/watch?v=lh1oQHXVSc0&list=PLSVW22jAG8pBnhAdq9S8BpLnZ0_jVBj0c    ---tutorial source
+
+ServiceDiscoveryPattern in microservice
+
+https://www.youtube.com/watch?v=--nQfs67zCM   --testing in springboot using junit
+
+
+https://github.com/SaiUpadhyayula?tab=overview&from=2023-06-01&to=2023-06-30     --githublink for the tutorial
+
+https://projectlombok.org/features/
+
+
+RestTemplate and WebClient :-both are used in synchronous communication.It is good to use the WebClient because it supports synch,asynch,streaming communication.
+
+===========hitting the using api gateway=====
+http://localhost:8080/api/product
+
+#http://localhost:8080/eureka/web      ==accessing eureka using api gateway
+
+
+#spring.cloud.gateway.routes[3].uri=lb://localhost:8761
+
+====running the keycoak in local environment===
+docker run -p 8181:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:22.0.1 start-dev
+realm:-demo_realm
+client:-demo_client
+x3lWKhvRgTPgnSXTqyYYdwVeGDbLqUxY
+x3lWKhvRgTPgnSXTqyYYdwVeGDbLqUxY
+issuer:-http://localhost:8181/realms/Demo_ream
+
+token_endpoint:-http://localhost:8181/realms/demo_realm/protocol/openid-connect/token  :-configure it in postman
+https://www.youtube.com/watch?v=kn5h-GTjDY0&list=PLSVW22jAG8pBnhAdq9S8BpLnZ0_jVBj0c&index=5   :-keycloak with spring boot
+
+#==resilence4j circuit breaker==
+resilence4j is replacement of the netflix historic
+https://resilience4j.readme.io/docs
+spring cloud circuit breaker.netflix historic .
+
+http://localhost:8083/actuator/health   :--accesting the actuator for a service.here 8083 is the orderservice port number define in the application.property file
+
+Distributed tracing spring cloud sleuth
+#=====running the zipkin container =========
+docker run -d -p 9411:9411 openzipkin/zipkin
+
+http://localhost:9411/zipkin/
+
+https://spring.io/projects/spring-kafka
+
+
+in kafka there is bug not able to connect to listener.
+
+
+====step  to run this project=======
+
+docker run -p 8181:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:22.0.1 start-dev
+realm:-demo_realm
+client:-demo_client
+x3lWKhvRgTPgnSXTqyYYdwVeGDbLqUxY
+x3lWKhvRgTPgnSXTqyYYdwVeGDbLqUxY
+issuer:-http://localhost:8181/realms/Demo_ream
+
+token_endpoint:-http://localhost:8181/realms/demo_realm/protocol/openid-connect/token  :-configure it in postman
+https://www.youtube.com/watch?v=kn5h-GTjDY0&list=PLSVW22jAG8pBnhAdq9S8BpLnZ0_jVBj0c&index=5   :-keycloak with spring boot
+
+
+run mysql   and  kafka
+
+docker compose up -d   :-to run the docker-compose.yaml
+
+
+https://spring.io/projects/spring-cloud/
+https://spring.io/guides/topicals/spring-boot-docker/      :-pom docker file
+https://spring.io/projects/spring-kafka#learn
+https://cloud.google.com/java/getting-started/jib     jib tutorial
+=======for building the docker image====
+[iid@iid api-gateway-demo]$ docker build  -t apigatey -f docker/Dockerfile .
+[iid@iid api-gateway-demo]$ docker build -t apigatewayap -f docker/Dockerfile.layered
+
+building java image with jib :-it will take care  about the image optimization.
