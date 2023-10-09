@@ -57,6 +57,12 @@
     <dependencies>
 
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
@@ -112,7 +118,9 @@
                 <directory>src/main/resources</directory>
                 <includes>
                     <include>*.properties</include>
-                    <include>common-config/</include>
+<!--
+         this we will uncomment when we will use file based config server           <include>common-config/</include>
+-->
                 </includes>
             </resource>
         </resources>

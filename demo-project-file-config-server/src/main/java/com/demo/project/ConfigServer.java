@@ -20,3 +20,5 @@ public class ConfigServer {
     }
 }
 //http://localhost:8888/application/default
+
+//this is config server which will interact with git

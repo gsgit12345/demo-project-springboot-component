@@ -6,8 +6,9 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class hello {
-/*    public static void main(String str[]) {
-    }*/
+    public static void main(String str[]) {
+        testMysql();
+    }
 
     public static void testMysql() {
 
